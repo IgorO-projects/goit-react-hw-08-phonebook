@@ -1,6 +1,8 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import phonebookReducer from './actions/phonebook-reducer';
+import authReducer from './auth/auth-reducer';
+
 import { 
     FLUSH,
     REHYDRATE,
@@ -21,6 +23,7 @@ const middleware = [...getDefaultMiddleware({
 
 const store = configureStore({
     reducer: {
+        auth: authReducer,
         contacts: phonebookReducer,
     },
     middleware, 
