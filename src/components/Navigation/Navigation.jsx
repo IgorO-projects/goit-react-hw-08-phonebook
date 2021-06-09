@@ -14,7 +14,7 @@ const Navigation = () => (
     </NavLink>
 
     <NavLink
-      to="/todos"
+      to="/contacts"
       exact
       className={styles.link}
       activeClassName={styles.activeLink}

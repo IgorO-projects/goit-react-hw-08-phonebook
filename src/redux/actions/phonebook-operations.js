@@ -9,9 +9,8 @@ import {
     deletedContactRequest,
     deletedContactSuccess,
     deletedContactError
- } from './phonebook-actions';
+} from './phonebook-actions';
 
-// axios.defaults.baseURL = 'http://localhost:4040';
 
 export const fetchContacts = () => dispatch => {
     dispatch(fetchContactRequest())
@@ -19,7 +18,7 @@ export const fetchContacts = () => dispatch => {
     axios
     .get('/contacts')
     .then(({ data }) => dispatch(fetchContactSuccess(data)))
-    .catch(error => dispatch(fetchContactError(error)))
+    .catch(error => dispatch(fetchContactError(error.message)))
 }
 
 export const handleContactAdd = contact => dispatch => {
@@ -28,7 +27,7 @@ export const handleContactAdd = contact => dispatch => {
     axios
     .post('/contacts', contact)
     .then(({ data }) => dispatch(addContactSuccess(data)))
-    .catch(error => dispatch(addContactError(error)))
+    .catch(error => dispatch(addContactError(error.message)))
 };
 
 export const deletedContact = id => dispatch => {
@@ -37,5 +36,5 @@ export const deletedContact = id => dispatch => {
     axios
     .delete(`/contacts/${id}`)
     .then(() => dispatch(deletedContactSuccess(id)))
-    .catch(error => dispatch(deletedContactError(error)))
+    .catch(error => dispatch(deletedContactError(error.message)))
 };
