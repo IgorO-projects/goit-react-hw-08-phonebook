@@ -8,6 +8,8 @@ import ContactsView from './views/ContactsView';
 import { Component } from "react";
 import { getCurrentUser } from './redux/auth/auth-operations';
 import { connect } from "react-redux";
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 
 class App extends Component {
@@ -22,9 +24,20 @@ class App extends Component {
         <AppBar/>
         <Switch>
           <Route exact path="/" component={HomeView} />
-          <Route path="/register" component={RegisterView}/>
-          <Route path="/login" component={LoginView}/>
-          <Route path="/contacts" component={ContactsView}/>
+          <PublicRoute 
+            path="/register" 
+            restricted
+            redirectTo="/contacts"
+            component={RegisterView}/>
+          <PublicRoute 
+            path="/login" 
+            restricted 
+            redirectTo="/contacts"
+            component={LoginView}/>
+          <PrivateRoute 
+            path="/contacts" 
+            redirectTo="/login"
+            component={ContactsView}/>
         </Switch>
       </Container>
       </>

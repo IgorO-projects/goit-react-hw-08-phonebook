@@ -10,9 +10,9 @@ const UserMenu = ({ avatar, email, OnLogout }) => {
     return (
       <div className={styles.container}>
         <img src={avatar} alt="" width="32" className={styles.avatar} />
-        <span className={styles.name}>Добро пожаловать, {email}</span>
+        <span className={styles.name}>Hello there, {email}</span>
         <button type="button" onClick={OnLogout}>
-          Выйти
+          Logout
         </button>
       </div>
     );
