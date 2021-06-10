@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './RegisterView.module.css';
 import { register } from '../redux/auth/auth-operations';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class RegisterView extends Component {
   state = {
@@ -29,17 +31,17 @@ class RegisterView extends Component {
   render() {
     const { name, email, password } = this.state;
     return (
-      <div>
-        <h1>Страница регистрации</h1>
+      <div className={styles.container}>
+        <h1>Registration page</h1>
   
         <form onSubmit={this.handleSubmit} className={styles.form} autoComplete="off">
           <label className={styles.label}>
-            Имя
+            Name
             <input type="text" name="name" value={name} onChange={this.handleChange} />
           </label>
   
           <label className={styles.label}>
-            Почта
+            Email
             <input
               type="email"
               name="email"
@@ -49,7 +51,7 @@ class RegisterView extends Component {
           </label>
   
           <label className={styles.label}>
-            Пароль
+            Password
             <input
               type="password"
               name="password"
@@ -57,8 +59,7 @@ class RegisterView extends Component {
               onChange={this.handleChange}
             />
           </label>
-  
-          <button type="submit">Зарегистрироваться</button>
+          <Button variant="outline-danger" type="submit">Register now</Button>
         </form>
       </div>
     );

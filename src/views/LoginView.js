@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './LoginView.module.css';
 import { logIn } from '../redux/auth/auth-operations';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class LoginView extends Component {
@@ -35,12 +37,12 @@ class LoginView extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div>
-        <h1>Страница логина</h1>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Login Page</h1>
   
         <form onSubmit={this.handleSubmit} className={styles.form} autoComplete="off">
           <label className={styles.label}>
-            Почта
+            Email
             <input
               type="email"
               name="email"
@@ -50,7 +52,7 @@ class LoginView extends Component {
           </label>
   
           <label className={styles.label}>
-            Пароль
+            Password
             <input
               type="password"
               name="password"
@@ -59,7 +61,7 @@ class LoginView extends Component {
             />
           </label>
   
-          <button type="submit">Войти</button>
+          <Button variant="outline-danger" type="submit">entry</Button>
         </form>
       </div>
     );

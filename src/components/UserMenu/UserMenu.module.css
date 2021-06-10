@@ -10,3 +10,15 @@
     font-weight: 700px;
     margin-right: 12px;
 }
+.button {
+    display: block;
+    margin: 0 auto;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover,
+.button:focus {
+    background-color:  orchid;
+}
